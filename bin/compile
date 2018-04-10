@@ -40,7 +40,15 @@ echo "/tmp/nodejs/bin/detect $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR"
 echo "/tmp/nodejs/bin/compile $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR"
 /tmp/nodejs/bin/compile $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR
 
-export PATH="$BUILD_DIR/.heroku/node/bin:$BUILD_DIR/.heroku/yarn/bin":$PATH
+echo "exporting"
+$NEW_BUILD_DIR/export
+echo "done exporting"
+env
+pwd
+ls -la
+ls -la $NEW_BUILD_DIR/.heroku/node/bin
+ls -la $NEW_BUILD_DIR/.heroku/yarn/bin
+ls -la $NEW_BUILD_DIR/node_modules/.bin
 
 ember deploy production
 ember build --environment production
