@@ -11,11 +11,12 @@ NEW_BUILD_DIR="$BUILD_DIR/$SUBDIR"
 
 NODE_BUILDPACK=${NODE_BUILDPACK:-https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/nodejs.tgz}
 mkdir -p /tmp/nodejs
-curl --silent --location $NODE_BUILDPACK | tar xzm -C /tmp/nodejs --strip-components=1
-/tmp/nodejs/bin/detect $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR
-/tmp/nodejs/bin/compile $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR
+curl --silent --location $NODE_BUILDPACK | tar xzm -C /tmp/nodejs --strip-components=1 --warning=no-unknown-keyword
 
 cd $BUILD_DIR
+
+/tmp/nodejs/bin/detect $SUBDIR $CACHE_DIR $ENV_DIR
+/tmp/nodejs/bin/compile $SUBDIR $CACHE_DIR $ENV_DIR
 
 cd ember-orchard
 yarn install
