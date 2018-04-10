@@ -40,7 +40,9 @@ echo "/tmp/nodejs/bin/detect $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR"
 echo "/tmp/nodejs/bin/compile $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR"
 /tmp/nodejs/bin/compile $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR
 
-$CACHE_DIR/node_modules/.bin/ember deploy production
-$CACHE_DIR/node_modules/.bin/ember build --environment production
+export PATH="$BUILD_DIR/.heroku/node/bin:$BUILD_DIR/.heroku/yarn/bin":$PATH
+
+ember deploy production
+ember build --environment production
 cp Procfile ..
 exit 0
