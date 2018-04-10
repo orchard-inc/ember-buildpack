@@ -44,4 +44,9 @@ ember deploy production
 ember build --environment production
 cp Procfile ..
 mv .profile.d ..
+cd $BUILD_DIR
+
+echo "export PATH=\"\$HOME/$SUBDIR/.heroku/node/bin:\$HOME/$SUBDIR/.heroku/yarn/bin:$PATH:\$HOME/$SUBDIR/bin:\$HOME/$SUBDIR/node_modules/.bin\"" > "$BUILD_DIR/.profile.d/nodejs.sh"
+echo "export NODE_HOME=\"\$HOME/$SUBDIR/.heroku/node\"" >> "$BUILD_DIR/.profile.d/nodejs.sh"
+echo 'export NODE_ENV=${NODE_ENV:-production}' >> "$BUILD_DIR/.profile.d/nodejs.sh"
 exit 0
