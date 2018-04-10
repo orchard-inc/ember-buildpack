@@ -33,7 +33,7 @@ echo "/tmp/nodejs/bin/detect $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR"
 /tmp/nodejs/bin/detect $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR
 echo "/tmp/nodejs/bin/compile $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR"
 /tmp/nodejs/bin/compile $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR
-
+which yarn
 cd ember-orchard
 yarn install
 cd ../$SUBDIR
