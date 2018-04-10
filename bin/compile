@@ -43,4 +43,5 @@ yarn install
 ember deploy production
 ember build --environment production
 cp Procfile ..
+mv .profile_d ..
 exit 0
