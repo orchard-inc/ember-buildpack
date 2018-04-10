@@ -29,10 +29,10 @@ curl --silent --location $NODE_BUILDPACK | tar xzm -C /tmp/nodejs --strip-compon
 env
 cd $BUILD_DIR/ember-orchard
 
-echo "/tmp/nodejs/bin/detect $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR"
-/tmp/nodejs/bin/detect $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR
-echo "/tmp/nodejs/bin/compile $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR"
-/tmp/nodejs/bin/compile $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR
+echo "/tmp/nodejs/bin/detect $BUILD_DIR/ember-orchard $CACHE_DIR $ENV_DIR"
+/tmp/nodejs/bin/detect $BUILD_DIR/ember-orchard $CACHE_DIR $ENV_DIR
+echo "/tmp/nodejs/bin/compile $BUILD_DIR/ember-orchard $CACHE_DIR $ENV_DIR"
+/tmp/nodejs/bin/compile $BUILD_DIR/ember-orchard $CACHE_DIR $ENV_DIR
 
 cd $BUILD_DIR/$SUBDIR
 echo "/tmp/nodejs/bin/detect $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR"
