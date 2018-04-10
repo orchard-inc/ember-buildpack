@@ -50,6 +50,7 @@ ls -la $NEW_BUILD_DIR/.heroku/node/bin
 ls -la $NEW_BUILD_DIR/.heroku/yarn/bin
 ls -la $NEW_BUILD_DIR/node_modules/.bin
 
+yarn install
 ember deploy production
 ember build --environment production
 cp Procfile ..
