@@ -17,7 +17,7 @@ export_env_dir() {
     done
   fi
 }
-export_env_dir
+export_env_dir $ENV_DIR
 NEW_BUILD_DIR="$BUILD_DIR/$SUBDIR"
 
 # download the buildpack
