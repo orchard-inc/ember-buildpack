@@ -13,6 +13,7 @@ NODE_BUILDPACK=${NODE_BUILDPACK:-https://codon-buildpacks.s3.amazonaws.com/build
 mkdir -p /tmp/nodejs
 curl --silent --location $NODE_BUILDPACK | tar xzm -C /tmp/nodejs --strip-components=1 --warning=no-unknown-keyword
 
+env
 cd $BUILD_DIR
 
 echo "/tmp/nodejs/bin/detect $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR"
