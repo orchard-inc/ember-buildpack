@@ -40,7 +40,7 @@ echo "/tmp/nodejs/bin/detect $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR"
 echo "/tmp/nodejs/bin/compile $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR"
 /tmp/nodejs/bin/compile $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR
 
-ember deploy production
-ember build --environment production
+yarn run ember deploy production
+yarn run ember build --environment production
 cp Procfile ..
 exit 0
