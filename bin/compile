@@ -15,8 +15,10 @@ curl --silent --location $NODE_BUILDPACK | tar xzm -C /tmp/nodejs --strip-compon
 
 cd $BUILD_DIR
 
-/tmp/nodejs/bin/detect $SUBDIR $CACHE_DIR $ENV_DIR
-/tmp/nodejs/bin/compile $SUBDIR $CACHE_DIR $ENV_DIR
+echo "/tmp/nodejs/bin/detect $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR"
+/tmp/nodejs/bin/detect $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR
+echo "/tmp/nodejs/bin/compile $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR"
+/tmp/nodejs/bin/compile $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR
 
 cd ember-orchard
 yarn install
