@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo "Boundless"
+exit 0

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -e
+
+cd ember-orchard
+yarn install
+cd ../$SUBDIR
+yarn install
+ember deploy production
+ember build --environment production
+cp Procfile ..
+exit 0
