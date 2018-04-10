@@ -26,30 +26,18 @@ NODE_BUILDPACK=${NODE_BUILDPACK:-https://codon-buildpacks.s3.amazonaws.com/build
 mkdir -p /tmp/nodejs
 curl --silent --location $NODE_BUILDPACK | tar xzm -C /tmp/nodejs --strip-components=1 --warning=no-unknown-keyword
 
-echo "/tmp/nodejs/bin/detect $BUILD_DIR/ember-orchard $CACHE_DIR $ENV_DIR"
-/tmp/nodejs/bin/detect $BUILD_DIR/ember-orchard $CACHE_DIR $ENV_DIR
-echo "/tmp/nodejs/bin/compile $BUILD_DIR/ember-orchard $CACHE_DIR $ENV_DIR"
-/tmp/nodejs/bin/compile $BUILD_DIR/ember-orchard $CACHE_DIR $ENV_DIR
-
 echo "/tmp/nodejs/bin/detect $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR"
 /tmp/nodejs/bin/detect $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR
 echo "/tmp/nodejs/bin/compile $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR"
 /tmp/nodejs/bin/compile $NEW_BUILD_DIR $CACHE_DIR $ENV_DIR
-
-echo "exporting"
 source /tmp/nodejs/export
-echo "done exporting"
-env
-pwd
-ls -la
-ls -la $NEW_BUILD_DIR/.heroku/node/bin
-ls -la $NEW_BUILD_DIR/.heroku/yarn/bin
-ls -la $NEW_BUILD_DIR/node_modules/.bin
 
 cd $BUILD_DIR/ember-orchard
+echo "Installing ember-orchard dependencies"
 yarn install
 
 cd $BUILD_DIR/$SUBDIR
+echo "Installing $SUBDIR dependencies"
 yarn install
 
 ember deploy production
